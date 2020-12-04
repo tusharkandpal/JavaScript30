@@ -17,29 +17,69 @@
       p.style.fontSize = '50px';
     }
 
+    const p = document.querySelector('p');
+    
     // Regular
+    console.log("hello Devs");
 
     // Interpolated
+    console.log(`hello i'm a ${dogs[0].name}`);
 
     // Styled
+    console.log('%c Hey! you all', 'color: blue; background-color: lightblue; font-size: 20px');
 
     // warning!
+    console.warn("Some mishap happened here!");
 
     // Error :|
+    console.error("oh nooo, runtime error")
 
     // Info
+    console.info('This is a trial')
 
     // Testing
+    console.assert((1===2), 'this is wrong'); 
+    // The second statement only runs if the first is false without using "if"
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p); //Shows its all the methods
+
+    console.clear();
 
     // Grouping together
+    dogs.map(dog => {
+      console.group(`${dog.name}`); // or console.groupCollapsed
+      console.log(`${dog.name} is a cute dog.`);
+      console.log(`${dog.name} is ${dog.age} years old.`);
+      console.log(`${dog.age * 7} age is very old.`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
+    console.count('Tushar');
+    console.count('Tanuj');
+    console.count('Tushar');
+    console.count('Tushar');
+    console.count('Tushar');
+    console.count('Tanuj');
+    console.count('Tanuj');
+    console.count('Tanuj');
 
     // timing
+    console.time('Fetching data')
+    fetch('https://api.github.com/users/tusharkandpal')
+    .then(res => res.json())
+    .then(data => {
+      console.timeEnd('Fetching data');
+      console.log(data);
+    });
+
+    // table
+    console.table(dogs);
 
   </script>
 </body>
