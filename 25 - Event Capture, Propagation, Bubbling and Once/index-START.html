@@ -42,6 +42,16 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+
+  function logText(e) {
+    console.log(this.classList.value);
+    // e.stopPropagation(); //stop bubbling! i.e running events on the way up
+  }
+
+  // divs.forEach(div => div.addEventListener('click', logText, {capture: true})); //it runs the event on the way down rather than up
+
+  divs.forEach(div => div.addEventListener('click', logText, {once: true} )); //runs the event only once
 
 </script>
 </body>
